@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
-allocations = pd.read_csv("../outputs/portfolio_allocations.csv")
+allocations = pd.read_csv("outputs/portfolio_allocations.csv")
 
 
 def show_portfolio_construction():
@@ -24,7 +24,7 @@ def show_portfolio_construction():
         filtered_alloc["Allocation_%"] * filtered_alloc["Volatility"]
     ).sum() / 100
 
-    c1.metric("Expected Return", f"{portfolio_return*100:.2f}%")
+    c1.metric("Expected Daily Return", f"{portfolio_return*100:.2f}%")
 
     c2.metric("Portfolio Sharpe", f"{portfolio_sharpe:.2f}")
 
@@ -76,5 +76,13 @@ def show_portfolio_construction():
 
     display_df["Predicted Return (%)"] = display_df["Predicted_Return"] * 100
     display_df = display_df.drop(columns=["Predicted_Return"])
+    display_df = display_df.rename(
+    columns={
+        "Allocation_%": "Allocation (%)",
+        "Max_Drawdown": "Max Drawdown",
+        "Predicted Return (%)":"Predicted Daily Return (%)"
+        
+    }
+)
     st.subheader("Portfolio Constituents")
     st.dataframe(display_df, use_container_width=True)

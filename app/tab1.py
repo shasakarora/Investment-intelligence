@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
-risk_df = pd.read_csv("../outputs/risk_metrics.csv")
+risk_df = pd.read_csv("outputs/risk_metrics.csv")
 
 
 def show_risk_analysis():

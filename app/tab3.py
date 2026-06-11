@@ -2,9 +2,9 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
-risk_df = pd.read_csv("../outputs/risk_metrics.csv")
+risk_df = pd.read_csv("outputs/risk_metrics.csv")
 
-predictions_df = pd.read_csv("../data/predicted_portfolio_signals.csv")
+predictions_df = pd.read_csv("data/predicted_portfolio_signals.csv")
 
 stock_predictions = (
     predictions_df.groupby("Name")["Predicted_Return"].mean().reset_index()
@@ -30,7 +30,7 @@ def show_stock_explorer():
 
     # Metrics
     c1, c2, c3 = st.columns(3)
-    c1.metric("Predicted Return", f"{predicted_return*100:.3f}%")
+    c1.metric("Predicted Daily Return", f"{predicted_return*100:.3f}%")
     c2.metric("Sharpe Ratio", round(stock_row["Sharpe"], 2))
     c3.metric("Volatility", round(stock_row["Volatility"], 3))
 
@@ -103,8 +103,13 @@ def show_stock_explorer():
         }
     )
     st.subheader("Risk Metrics")
+
     for _, row in metrics_df.iterrows():
         c1, c2 = st.columns([2, 1])
 
         c1.write(row["Metric"])
-        c2.write(f"{row['Value']:.4f}")
+
+        if row["Metric"] == "Annual Return":
+            c2.write(f"{row['Value']*100:.2f}%")
+        else:
+            c2.write(f"{row['Value']:.4f}")

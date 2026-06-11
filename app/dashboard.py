@@ -10,14 +10,14 @@ st.set_page_config(
     page_title="Investment Intelligence Platform", page_icon="📈", layout="wide"
 )
 
-st.title("📈 Investment Intelligence Platform")
+st.title("Investment Intelligence Platform")
 
 st.markdown("""
 AI-Powered Portfolio Construction, Risk Assessment and Investment Recommendation System
 """)
 
 tab1, tab2, tab3 = st.tabs(
-    ["📊 Risk Analysis", "📈 Portfolio Construction", "🔍 Stock Explorer"]
+    [" Risk Analysis", " Portfolio Construction", " Stock Explorer"]
 )
 
 # TAB 1 (Risk Analysis)
