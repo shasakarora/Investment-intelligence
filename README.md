@@ -50,15 +50,15 @@ Follow the given steps in order to run the project.
 3. Run pip install -r requirements.txt to install necessary libraries.
 4. Download the dataset :
     - https://www.kaggle.com/datasets/rohanrao/nifty50-stock-market-data/data (Dataset link)
-    - csv files of each stock's historical data should be in "data/dataset/"
-5. Run data_analysis.ipynb using command jupyter notebook data_analysis.ipynb
+    - Place all downloaded stock CSV files inside: "data/dataset/"
+5. Run data_analysis.ipynb using command "jupyter notebook data_analysis.ipynb" in the terminal or from within the IDE.
 This notebook performs exploratory data analysis and preprocessing of the stock dataset.
 6. Train the prediction model :
-Run "jupyter notebook notebooks/model1.ipynb".This notebook trains the machine learning model and generates "data/predicted_portfolio_signals.csv" containing predicted stock returns.
+Run model1.ipynb either from within the IDE or from the terminal using the command "jupyter notebook notebooks/model1.ipynb".This notebook trains the machine learning model and generates "data/predicted_portfolio_signals.csv" containing predicted stock returns.
 7. Perform risk analysis of stocks :
-Run "jupyter notebook risk_assessment/risk_analysis.ipynb".This notebook generates "outputs/risk_metrics.csv" containing Annual return, Volatility, Sharpe ratio, Sortino ratio, Value at risk (VaR), Conditional value at risk (CVaR), Maximum drawdown for each stock.
+Run risk_assessment/risk_analysis.ipynb in the same way as described in steps above.This notebook generates "outputs/risk_metrics.csv" containing Annual return, Volatility, Sharpe ratio, Sortino ratio, Value at risk (VaR), Conditional value at risk (CVaR), Maximum drawdown for each stock.
 8. Portfolio construction :
-Run "jupyter notebook portfolio/portfolio_construction.ipynb".This notebook generates "outputs/portfolio_allocations.csv" containing portfolio weights for Conservative, Balanced and Aggressive investor profiles.
+Lastly, run portfolio_construction.ipynb.This notebook generates "outputs/portfolio_allocations.csv" containing portfolio weights for Conservative, Balanced and Aggressive investor profiles.
 9. Launch dashboard :
 Run "streamlit run app/dashboard.py" to launch the dashboard on localhost.The dashboard has 3 tabs, namely Risk Analysis, Portfolio Construction and Stock Explorer with interactive visualizations and portfolio recommendations.
 
